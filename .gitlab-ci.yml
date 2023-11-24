@@ -42,8 +42,6 @@ unit-test-job:   # This job runs in the test stage.
   stage: test
   image: maximilianomt/ingapi:start    # It only starts when the job in the build stage completes successfully.
   script:
-    - echo "Installing testing pytest"
-    - pip install pytest
     - echo "Running unit tests... This will take about 60 seconds."
     - pytest -v
     - echo "Code coverage is 90%"
