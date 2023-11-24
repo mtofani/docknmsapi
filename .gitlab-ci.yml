@@ -32,10 +32,11 @@ stages:          # List of stages for jobs, and their order of execution
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   image: docker:latest
+  
   script:
     - echo "Compiling the code..."
     - docker build -t maximilianomt/ingapi:start .
-    - docker run  -e NAMESPACE=masivos maximilianomt/ingapi:start 
+    - sudo docker run  -e NAMESPACE=masivos maximilianomt/ingapi:start 
     - echo "Compile complete."
 
 unit-test-job:   # This job runs in the test stage.
