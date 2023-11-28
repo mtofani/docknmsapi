@@ -37,6 +37,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - echo "Compiling the code..."
     - docker build -t maximilianomt/ingapi:start .
     - echo "Compile complete."
+    - ls -R
 
   artifacts:
     paths:
