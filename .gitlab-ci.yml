@@ -37,7 +37,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - echo "Compiling the code..."
     - docker build -t maximilianomt/ingapi:start .
     - mkdir compiled_code  # Agrega este comando para crear el directorio
-    - cp -r * compiled_code/  # O el comando que uses para copiar archivos
+    - rsync -a --exclude=compiled_code/ ./ compiled_code/
     - ls -R
     - echo "Compile complete."
 
