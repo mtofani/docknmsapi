@@ -51,6 +51,8 @@ unit-test-job:   # This job runs in the test stage.
   image: maximilianomt/ingapi:start    # It only starts when the job in the build stage completes successfully.
   script:
     - echo "Running unit tests... This will take about 60 seconds."
+    - find . -name "__pycache__" -exec rm -r {} \;
+    - find . -name "*.pyc" -exec rm {} \;
     - pytest -v
     - echo "Code coverage is 90%"
   dependencies:
